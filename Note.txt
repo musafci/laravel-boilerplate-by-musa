@@ -9,3 +9,4 @@
     - spatie/laravel-activitylog
     - yajra/laravel-datatables-oracle
     - barryvdh/laravel-debugbar
+    - spatie/laravel-permission
