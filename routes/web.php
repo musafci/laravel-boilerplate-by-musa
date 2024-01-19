@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\FrontController;
+use App\Http\Controllers\{FrontController, IndexController};
 use Illuminate\Support\Facades\Route;
 use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
@@ -19,5 +19,9 @@ Auth::routes([
     'register' => false,
 ]);
 
-Route::get('/', [FrontController::class, 'login'])->name('login');
+Route::get('/', [FrontController::class, 'login'])->name('loginpage');
 Route::get('logs', [LogViewerController::class, 'index']);
+
+Route::middleware('auth')->group(function () {
+    Route::get('dashboard', [IndexController::class, 'dashboard'])->name('dashboard');
+});
