@@ -36,9 +36,9 @@
 
             <button type="button" class="btn " data-toggle="modal" data-target="#notificationsModal">
                 <i class="fas fa-bell"></i>
-                {{-- @if($notification_count > 0)
+                @if($notification_count > 0)
                     <span class="badge badge-danger">{{ $notification_count }}</span>
-                @endif --}}
+                @endif
             </button>
         </li>
         <li class="nav-item">
@@ -74,12 +74,12 @@
                 <a class="btn btn-warning justify-content-start" href="{{ route('view.notifications') }}">
                     View All Notifications
                 </a>
-                {{-- @if($notification_count > 0)
+                @if($notification_count > 0)
                     <a class="btn btn-info justify-content-start" href="{{ route('mark.notifications') }}">
                         Mark All Read
                     </a>
-                @endif --}}
-{{--                <button type="button" class="btn btn-secondary " data-dismiss="modal">Close</button>--}}
+                @endif
+                <button type="button" class="btn btn-secondary " data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
