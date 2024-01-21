@@ -61,9 +61,10 @@
     </footer>
 
     <!-- Control Sidebar -->
-{{--    <aside class="control-sidebar control-sidebar-dark">--}}
-{{--        <!-- Control sidebar content goes here -->--}}
-{{--    </aside>--}}
+   <aside class="control-sidebar control-sidebar-dark">
+       <!-- Control sidebar content goes here -->
+       <h1>sssssssssssssss</h1>
+   </aside>
     <!-- /.control-sidebar -->
     <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
         {{ csrf_field() }}
@@ -89,7 +90,7 @@
 <script src="{{ asset('js/bootstrap4-multi-select.js') }}"></script>
 
 <script type="text/javascript">
-        @if(Session::has('message'))
+    @if(Session::has('message'))
     var type = "{{ Session::get('alert-type', 'info') }}";
     switch(type){
         case 'info':

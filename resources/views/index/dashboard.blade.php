@@ -13,8 +13,7 @@
                             </h3>
                         </div>
                         <div class="card-body">
-                            {{--                            <h2>Coming soon</h2>--}}
-                            @include('index.counter')
+                            <h2>Coming soon</h2>
                         </div>
                     </div>
                 </section>
