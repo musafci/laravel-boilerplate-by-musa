@@ -19,14 +19,13 @@
                             <div class="table-responsive">
                                 <table id="UserList" class=" table table-bordered table-striped table-hover list-data-view" style="width: 100%">
                                     <thead>
-                                    <tr class="table-head-color">
-                                        <th>Id</th>
-                                        <th>User</th>
-                                        <th>Dentist Office</th>
-                                        <th>Type</th>
-                                        <th>Subject</th>
-                                        <th>Message</th>
-                                    </tr>
+                                        <tr class="table-head-color">
+                                            <th>Id</th>
+                                            <th>User</th>
+                                            <th>Type</th>
+                                            <th>Subject</th>
+                                            <th>Message</th>
+                                        </tr>
                                     </thead>
                                 </table>
                             </div>
@@ -69,8 +68,7 @@
                         return meta.row + meta.settings._iDisplayStart + 1;
                     }
                 },
-                {'data': 'user_name'},
-                {'data': 'office_name'},
+                {'data': 'name'},
                 {'data': 'type'},
                 {'data': 'subject'},
                 {'data': 'message'},

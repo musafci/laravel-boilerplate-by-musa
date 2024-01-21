@@ -13,14 +13,14 @@
                 <img src="{{auth()->user()->getPhotoUrl()}}" class="img-circle elevation-3" alt="User Image">
             </div>
             <div class="info">
-{{--                <a href="javascript:;" class="d-block">{{auth()->user()->name}}</a>--}}
-                <a href="{{route('profile')}}" @if(in_array(Request::route()->getName(), ["profile"])) active @endif">
+               <a href="javascript:;" class="d-block">{{auth()->user()->name}}</a>
+                {{-- <a href="{{route('profile')}}" @if(in_array(Request::route()->getName(), ["profile"])) active @endif">
                     {{ auth()->user()->name }}
-                </a>
+                </a> --}}
             </div>
         </div>
         <!-- Sidebar menu -->
-        <nav class="mt-2">
+        {{-- <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column toggled" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
                     <a href="{{route('dashboard')}}" class="nav-link  @if(in_array(Request::route()->getName(), ["dashboard"])) active @endif">
@@ -96,7 +96,7 @@
                     </a>
                 </li>
             </ul>
-        </nav>
+        </nav> --}}
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
