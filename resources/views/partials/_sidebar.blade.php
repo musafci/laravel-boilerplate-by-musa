@@ -13,10 +13,10 @@
                 <img src="{{auth()->user()->getPhotoUrl()}}" class="img-circle elevation-3" alt="User Image">
             </div>
             <div class="info">
-               <a href="javascript:;" class="d-block">{{auth()->user()->name}}</a>
-                {{-- <a href="{{route('profile')}}" @if(in_array(Request::route()->getName(), ["profile"])) active @endif">
+               {{-- <a href="javascript:;" class="d-block">{{auth()->user()->name}}</a> --}}
+                <a href="{{route('profile')}}" @if(in_array(Request::route()->getName(), ["profile"])) active @endif">
                     {{ auth()->user()->name }}
-                </a> --}}
+                </a>
             </div>
         </div>
         <!-- Sidebar menu -->

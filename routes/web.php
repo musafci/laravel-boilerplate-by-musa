@@ -25,6 +25,8 @@ Route::get('logs', [LogViewerController::class, 'index']);
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', [IndexController::class, 'dashboard'])->name('dashboard');
 
+    Route::get('profile', [IndexController::class, 'profile'])->name('profile');
+
     ### Notifications
     Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications');
     Route::get('/count-notifications', [NotificationController::class, 'notificationCount'])->name('count.notifications');

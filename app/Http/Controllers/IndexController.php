@@ -10,4 +10,9 @@ class IndexController extends Controller
     {
         return view('index.dashboard');
     }
+
+    public function profile()
+    {
+        dd("profile");
+    }
 }
