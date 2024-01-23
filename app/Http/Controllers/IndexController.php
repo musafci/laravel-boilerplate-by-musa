@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class IndexController extends Controller
 {
-    public function dashboard()
+    /**
+     * @return Application|Factory|View
+     */
+    public function dashboard(): View|Factory|Application
     {
         return view('index.dashboard');
     }
@@ -33,6 +40,32 @@ class IndexController extends Controller
         }
 
         return view('index.profile_view', compact('breadcrumbs', 'tab', 'user'));
+    }
+
+    /**
+     * @return Application|Factory|View
+     */
+    public function profileUpdate(): View|Factory|Application
+    {
+        $breadcrumbs = [
+            'Profile Update',
+        ];
+
+        return view('index.profile_update', compact('breadcrumbs'));
+    }
+
+    /**
+     * @param Request $request
+     * @return Application|Factory|View
+     */
+    public function changePassword(Request $request): View|Factory|Application
+    {
+        $breadcrumbs = [
+            'Change Password'
+        ];
+        $tab = $request->input('tab') ?? null;
+
+        return view('index.profile', compact('breadcrumbs', 'tab'));
     }
 
     /**
