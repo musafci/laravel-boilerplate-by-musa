@@ -45,7 +45,7 @@
                                         <th>#</th>
                                         <th>User name</th>
                                         <th>User Email</th>
-                                        <th>User Role</th>
+                                        {{-- <th>User Role</th> --}}
                                         <th>Created at</th>
                                         <th>Action</th>
                                     </tr>
@@ -91,7 +91,7 @@
                 },
                 {'data': 'name'},
                 {'data': 'email'},
-                {'data': 'roles.0.name'},
+                // {'data': 'roles.0.name'},
                 {'data': 'created_at'},
                 {'data': 'actions'},
 

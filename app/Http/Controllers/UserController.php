@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\DentistRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
-use App\PackageService\src\Traits\redirect\RedirectWithNotification;
 use App\Rules\MatchOldPassword;
+use App\Traits\RedirectWithNotification;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -26,11 +25,11 @@ class UserController extends Controller
     use RedirectWithNotification;
     public function __construct()
     {
-        $this->middleware('permission:user-list|user-create|user-show|user-delete', ['only' => ['index']]);
-        $this->middleware('permission:user-list|user-create|user-show|user-delete', ['only' => ['index']]);
-        $this->middleware('permission:user-create', ['only' => ['create','store']]);
-        $this->middleware('permission:user-show', ['only' => ['show']]);
-        $this->middleware('permission:user-delete', ['only' => ['destroy']]);
+        // $this->middleware('permission:user-list|user-create|user-show|user-delete', ['only' => ['index']]);
+        // $this->middleware('permission:user-list|user-create|user-show|user-delete', ['only' => ['index']]);
+        // $this->middleware('permission:user-create', ['only' => ['create','store']]);
+        // $this->middleware('permission:user-show', ['only' => ['show']]);
+        // $this->middleware('permission:user-delete', ['only' => ['destroy']]);
     }
 
     /**
@@ -42,7 +41,8 @@ class UserController extends Controller
             'User Management'
         ];
         if (request()->ajax()) {
-            $users = User::where('type', 'system-user')->with('roles')->get();
+            // $users = User::where('type', 'system-user')->with('roles')->get();
+            $users = User::get();
             $query = $users->reject(function ($user, $key) {
                 return $user->hasRole('Super Admin');
             });

@@ -20,7 +20,7 @@
             </div>
         </div>
         <!-- Sidebar menu -->
-        {{-- <nav class="mt-2">
+        <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column toggled" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
                     <a href="{{route('dashboard')}}" class="nav-link  @if(in_array(Request::route()->getName(), ["dashboard"])) active @endif">
@@ -29,6 +29,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('user.index')}}" class="nav-link @if(in_array(Request::route()->getName(), ["user.index"])) active @endif">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Users</p>
+                    </a>
+                </li>
+                {{-- <li class="nav-item">
                     <a href="{{route('dentist-office.index')}}" class="nav-link @if(in_array(Request::route()->getName(), ["dentist-office.index"])) active @endif">
                         <i class="nav-icon fas fa-hospital"></i>
 
@@ -39,12 +45,6 @@
                     <a href="{{route('ticket.index')}}" class="nav-link @if(in_array(Request::route()->getName(), ["ticket.index"])) active @endif">
                         <i class="nav-icon fas fa-light fa-clipboard-list"></i>
                         <p>Tickets</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('user.index')}}" class="nav-link @if(in_array(Request::route()->getName(), ["user.index"])) active @endif">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>Users</p>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -94,9 +94,9 @@
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>Logout</p>
                     </a>
-                </li>
+                </li> --}}
             </ul>
-        </nav> --}}
+        </nav>
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
