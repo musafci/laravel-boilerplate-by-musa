@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{FrontController, IndexController, NotificationController, UserController};
+use App\Http\Controllers\{CategoryController, FrontController, IndexController, NotificationController, UserController};
 use Illuminate\Support\Facades\Route;
 use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
@@ -42,4 +42,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/count-notifications', [NotificationController::class, 'notificationCount'])->name('count.notifications');
     Route::get('/mark-notifications', [NotificationController::class, 'markAsRead'])->name('mark.notifications');
     Route::get('/view-notifications', [NotificationController::class, 'viewAllNotifications'])->name('view.notifications');
+
+
+    ### Category
+    Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+    Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.show');
+    Route::get('/delete-category', [CategoryController::class, 'destroy'])->name('category.destroy');
 });

@@ -34,6 +34,24 @@
                         <p>Users</p>
                     </a>
                 </li>
+                <li class="nav-item " style=" color: #212529 !important;">
+                    <a href="#" class="nav-link ">
+                        <i class="nav-icon fas fa-cogs"></i>
+                        <p>
+                            Settings
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview treeview-menu ">
+                        <li class="nav-item">
+                            <a href="{{route('category.index')}}" class="nav-link @if(in_array(Request::route()->getName(), ["category.index"])) active @endif">
+                                <i class="nav-icon fas fa-list"></i>
+                                <p>Category</p>
+                            </a>
+                        </li>
+                        </li>
+                    </ul>
+                </li>
                 {{-- <li class="nav-item">
                     <a href="{{route('dentist-office.index')}}" class="nav-link @if(in_array(Request::route()->getName(), ["dentist-office.index"])) active @endif">
                         <i class="nav-icon fas fa-hospital"></i>
