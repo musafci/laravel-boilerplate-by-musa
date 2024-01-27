@@ -39,17 +39,17 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="UserList" class=" table table-bordered table-striped table-hover list-data-view" style="width: 100%">
+                                <table id="CategoryList" class=" table table-bordered table-striped table-hover list-data-view" style="width: 100%">
                                     <thead>
-                                    <tr class="table-head-color">
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>Has Parent</th>
-                                        <th>Parent Name</th>
-                                        <th>Icon</th>
-                                        <th>Banner</th>
-                                        <th>Action</th>
-                                    </tr>
+                                        <tr class="table-head-color">
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Has Parent</th>
+                                            <th>Parent Name</th>
+                                            <th>Icon</th>
+                                            <th>Banner</th>
+                                            <th>Action</th>
+                                        </tr>
                                     </thead>
                                 </table>
                             </div>
@@ -67,7 +67,7 @@
     <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('js/jquery-confirm.min.js') }}" type="text/javascript"></script>
     <script>
-        var dataTable = $('#UserList').dataTable({
+        var dataTable = $('#CategoryList').dataTable({
             "bProcessing": true,
             "serverSide": true,
             "order": [[0, "desc"]],
@@ -75,7 +75,7 @@
             "scrollX": true,
             // "scrollY": "50vh",
             "scrollCollapse": true,
-            "ajax": "{{route('user.index')}}",
+            "ajax": "{{route('category.index')}}",
             //Set column definition initialisation properties.
             "columnDefs": [
                 {
@@ -91,11 +91,10 @@
                     }
                 },
                 {'data': 'name'},
-                {'data': 'parent'},
+                {'data': 'is_parent'},
                 {'data': 'parent_name'},
                 {'data': 'icon'},
                 {'data': 'banner'},
-                {'data': 'created_at'},
                 {'data': 'actions'},
 
             ]
