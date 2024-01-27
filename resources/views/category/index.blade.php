@@ -27,13 +27,12 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                category
+                                Category
                             </h3>
-                            {{-- @can('user-create') --}}
+                            {{-- @can('category-create') --}}
                                 <div class="card-tools">
-                                    {{-- <a class="btn btn-sm btn-success" href="{{ route("user.create") }}"> --}}
-                                    <a class="btn btn-sm btn-success" href="">
-                                        Add New User
+                                    <a class="btn btn-sm btn-success" href="{{ route("category.create") }}">
+                                        Add New Category
                                     </a>
                                 </div>
                             {{-- @endcan --}}
