@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Modules\Category\Actions\CategoryList;
+use App\Modules\Category\Actions\CategoryShow;
 use App\Modules\Category\Actions\FetchCategory;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
@@ -47,5 +48,14 @@ class CategoryController extends Controller
     public function list(CategoryList $action): JsonResponse
     {
         return $action->handle();
+    }
+
+    /**
+     * @param $category
+     * @return View|Factory|JsonResponse|RedirectResponse|Application
+    */
+    public function show($category, CategoryShow $action): View|Factory|JsonResponse|RedirectResponse|Application
+    {
+        return $action->handle($category);
     }
 }
