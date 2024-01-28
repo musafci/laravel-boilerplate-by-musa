@@ -2,9 +2,9 @@
 
 namespace App\Modules\Category\DataTable;
 
-use App\Modules\Category\DataTable\Interfaces\DynamicCategoryInterface;
+use App\Interfaces\DynamicTableInterface;
 
-class CategoryTable implements DynamicCategoryInterface
+class CategoryTable implements DynamicTableInterface
 {
     /**
      * @param $table
