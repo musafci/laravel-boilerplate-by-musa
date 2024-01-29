@@ -15,25 +15,22 @@ class CategoryShow
      * @param $category
      * @return View|Factory|JsonResponse|RedirectResponse|Application
     */
-    function handle($category): View|Factory|JsonResponse|RedirectResponse|Application
+    public function handle ($category): View|Factory|JsonResponse|RedirectResponse|Application
     {
         $breadcrumbs = [
             'Category' => route('category.index'),
             'Show'
         ];
 
-        $category_data = Category::where('id', $category);
-        if (!$category_data->exists()) {
+        $category = Category::where('id', $category)->first();
+
+        if(!$category instanceof Category) {
             $notification = array(
-                'message' => 'No data found!',
+                'message' => 'No category found!',
                 'alert-type' => 'error'
             );
-
             return redirect()->route('category.index')->with($notification);
         }
-        $category = $category_data->get()->toArray();
-        // $user = User::find($log[0]['causer_id']);
-        // $causer_user_name = $user->name ?? '';
 
         return view('category.show', compact('category', 'breadcrumbs'));
     }

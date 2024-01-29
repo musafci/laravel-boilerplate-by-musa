@@ -28,7 +28,7 @@
                                         Category Name
                                     </th>
                                     <td>
-                                        {{ $category[0]['name'] ?? null }}
+                                        {{ $category->name ?? null }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -36,7 +36,7 @@
                                         Has Parent
                                     </th>
                                     <td>
-                                        @if($category[0]['is_parent'] == 0)
+                                        @if($category->is_parent == 0)
                                             <span class="btn-xs btn-info">No</span>
                                         @else
                                             <span class="btn-xs btn-success">Yes</span>
@@ -54,7 +54,7 @@
                                         Icon
                                     </th>
                                     <td>
-                                        <img src="{{asset($category[0]['icon'] ?? 'images/not_found.png')}}" height="100px" width="100px" alt="icon">
+                                        <img src="{{asset($category->icon ?? 'images/not_found.png')}}" height="30px" width="30px" alt="icon">
                                     </td>
                                 </tr>
                                 <tr>
@@ -62,7 +62,7 @@
                                         Banner
                                     </th>
                                     <td>
-                                        <img src="{{asset($category[0]['banner'] ?? 'images/not_found.png')}}" height="150" width="200px" alt="banner">
+                                        <img src="{{asset($category->banner ?? 'images/not_found.png')}}" height="150" width="200px" alt="banner">
                                     </td>
                                 </tr>
                                 <tr>
@@ -70,7 +70,7 @@
                                         Created At
                                     </th>
                                     <td>
-                                        {{ isset($category[0]['created_at']) ? date('j F, Y H:i:s A', strtotime($category[0]['created_at'])) : null }}
+                                        {{ isset($category->created_at) ? date('j F, Y H:i:s A', strtotime($category->created_at)) : null }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -78,7 +78,7 @@
                                         Updated At
                                     </th>
                                     <td>
-                                        {{ isset($category[0]['updated_at']) ? date('j F, Y H:i:s A', strtotime($category[0]['updated_at'])) : null }}
+                                        {{ isset($category->updated_at) ? date('j F, Y H:i:s A', strtotime($category->updated_at)) : null }}
                                     </td>
                                 </tr>
 
@@ -102,13 +102,13 @@
 @section('scripts')
 <script>
     $(document).ready(function () {
-        let isParent = {{ $category[0]['is_parent'] }};
+        let isParent = {{ $category->is_parent }};
         console.log("isParent", isParent);
 
         if (isParent === 1) {
             $('#parentCategoriesRow').show();
             $.ajax({
-                url: '/categoryParent/' + {{ $category[0]['id'] }},
+                url: '/category-parent/' + {{ $category->id }},
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
