@@ -53,5 +53,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/category/{category}/edit', [CategoryController::class, 'edit'])->name('category.edit');
     Route::put('/category/{category}', [CategoryController::class, 'update'])->name('category.update');
     Route::post('category-delete', [CategoryController::class, 'destroy'])->name('category.destroy');
-    Route::get('/categoryParent/{parentId}', [CategoryController::class, 'parentCategory'])->name('category.parent');
+    Route::get('/category-parent/{category}', [CategoryController::class, 'parent'])->name('category.parent');
 });
