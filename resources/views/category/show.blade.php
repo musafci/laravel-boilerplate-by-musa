@@ -67,18 +67,18 @@
                                 </tr>
                                 <tr>
                                     <th>
-                                        Created At
+                                        Created Date
                                     </th>
                                     <td>
-                                        {{ isset($category->created_at) ? date('j F, Y H:i:s A', strtotime($category->created_at)) : null }}
+                                        {{ isset($category->created_at) ? $category->created_at->format($category->getDateFormat()) : null }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>
-                                        Updated At
+                                        Updated Date
                                     </th>
                                     <td>
-                                        {{ isset($category->updated_at) ? date('j F, Y H:i:s A', strtotime($category->updated_at)) : null }}
+                                        {{ isset($category->updated_at) ? $category->updated_at->format($category->getDateFormat()) : null }}
                                     </td>
                                 </tr>
 
