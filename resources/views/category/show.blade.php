@@ -103,16 +103,14 @@
 <script>
     $(document).ready(function () {
         let isParent = {{ $category->is_parent }};
-        console.log("isParent", isParent);
 
         if (isParent === 1) {
             $('#parentCategoriesRow').show();
             $.ajax({
-                url: '/category-parent/' + {{ $category->id }},
+                url: '/category-parent/' + {{ $category->parent_id }},
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
-                    console.log("data", data);
                     $('#parentCategoriesRow').show();
                     let parentCategoriesContent = '';
                     parentCategoriesContent += '<span class="btn-xs btn-primary">' + data + '</span>&nbsp;';

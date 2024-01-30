@@ -12,7 +12,7 @@ class ParentCategory
     */
     public function handle($category): JsonResponse
     {
-        $category = Category::where('id', $category)->value('name');
+        $category = Category::where('id', $category)->value('name') ?? 'Parent Deleted';
         return response()->json($category, 200);
     }
 }

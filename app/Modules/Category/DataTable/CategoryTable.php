@@ -14,11 +14,15 @@ class CategoryTable implements DynamicTableInterface
     {
         $actionTemplate = 'category._actions_template';
         $isParentTemplate = 'category._is_parent_template';
+        $parentNameTemplate = 'category._parent_name_template';
         $iconTemplate = 'category._icon_template';
         $bannerTemplate = 'category._banner_template';
 
         $table->editColumn('is_parent', function ($row) use ($isParentTemplate) {
             return view($isParentTemplate, compact('row'));
+        });
+        $table->editColumn('parent_name', function ($row) use ($parentNameTemplate) {
+            return view($parentNameTemplate, compact('row'));
         });
         $table->editColumn('icon', function ($row) use ($iconTemplate) {
             return view($iconTemplate, compact('row'));
