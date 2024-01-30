@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Category\CategoryRequest;
 use App\Models\Category;
+use App\Modules\Category\Actions\CategoryDelete;
 use App\Modules\Category\Actions\CategoryList;
 use App\Modules\Category\Actions\CategoryShow;
 use App\Modules\Category\Actions\FetchCategory;
 use App\Modules\Category\Actions\ParentCategory;
-use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -76,5 +76,16 @@ class CategoryController extends Controller
     public function parent($category, ParentCategory $action): JsonResponse
     {
         return $action->handle($category);
+    }
+
+
+    /**
+     * @param CategoryRequest $request
+     * @param CategoryDelete $action
+     * @return JsonResponse
+    */
+    public function destroy(CategoryRequest $request, CategoryDelete $action): JsonResponse
+    {
+        return $action->handle($request);
     }
 }

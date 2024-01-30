@@ -105,14 +105,16 @@
             }
         });
 
-        $(document).on('click', '.delete-role', function () {
+
+        // Category Delete
+        $(document).on('click', '.delete-category', function () {
             let requestData = {
                 _token: $('input[name=_token]').val(),
                 id: $(this).data("id"),
             }
             $.confirm({
                 title: 'Confirm!',
-                content: 'Deleted item can not be recovered!',
+                content: 'Warning! Deleted items can not be recovered.',
                 columnClass: 'medium',
                 type: 'red',
                 typeAnimated: true,

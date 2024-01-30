@@ -35,6 +35,11 @@ class CategoryRequest extends FormRequest
                 ];
             }
             case 'DELETE':
+            {
+                return [
+                    'id'
+                ];
+            }
             case 'GET':
             {
                 return [
