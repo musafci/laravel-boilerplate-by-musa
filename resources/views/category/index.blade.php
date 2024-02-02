@@ -39,7 +39,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="CategoryList" class=" table table-bordered table-striped table-hover list-data-view" style="width: 100%">
+                                <table id="CategoryList" class="table table-bordered table-striped table-hover list-data-view" style="width: 100%">
                                     <thead>
                                         <tr class="table-head-color">
                                             <th>#</th>
