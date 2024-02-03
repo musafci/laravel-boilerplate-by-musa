@@ -3,12 +3,15 @@
 namespace App\Modules\Category\Actions;
 
 use App\Models\Category;
+use App\Traits\UploadTrait;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
 
 class CategoryStore
 {
+    use UploadTrait;
+    
     /**
      * @param CategoryRequest $request
      * @return RedirectResponse|string
