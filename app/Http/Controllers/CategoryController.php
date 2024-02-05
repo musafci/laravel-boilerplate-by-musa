@@ -38,7 +38,7 @@ class CategoryController extends Controller
     /**
      * @return Application|Factory|View
     */
-    public function create()
+    public function create(): Application|Factory|View
     {
         $breadcrumbs = [
             'Category' => route('category.index'),
@@ -47,6 +47,8 @@ class CategoryController extends Controller
 
         return view('category.create', compact('breadcrumbs'));
     }
+
+
 
     /**
      * @param CategoryRequest $request
@@ -57,6 +59,8 @@ class CategoryController extends Controller
     {
         return $action->handle($request);
     }
+
+
 
     /**
      * @return JsonResponse
@@ -87,6 +91,7 @@ class CategoryController extends Controller
         return $action->handle($category);
     }
 
+    
 
     /**
      * @param CategoryRequest $request

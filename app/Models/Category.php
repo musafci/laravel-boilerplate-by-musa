@@ -9,5 +9,11 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $dateFormat = 'j F, Y H:i:s A';
+    protected $fillable = [
+        'name',
+        'is_parent',
+        'parent_id',
+        'icon',
+        'banner',
+    ];
 }

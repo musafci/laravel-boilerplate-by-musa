@@ -4,6 +4,6 @@ tr.table-head-color {
     font-size: 12px;
 }
 
-table.list-data-view > tbody > tr > td:last-child{
+/* table.list-data-view > tbody > tr > td:last-child{
     display: inline-flex;
-}
+} */
