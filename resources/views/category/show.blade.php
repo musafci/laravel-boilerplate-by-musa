@@ -70,7 +70,7 @@
                                         Created Date
                                     </th>
                                     <td>
-                                        {{ isset($category->created_at) ? $category->created_at->format($category->getDateFormat()) : null }}
+                                        {{ isset($category->created_at) ? $category->created_at->format('j F, Y H:i:s A') : null }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -78,7 +78,7 @@
                                         Updated Date
                                     </th>
                                     <td>
-                                        {{ isset($category->updated_at) ? $category->updated_at->format($category->getDateFormat()) : null }}
+                                        {{ isset($category->updated_at) ? $category->updated_at->format('j F, Y H:i:s A') : null }}
                                     </td>
                                 </tr>
 

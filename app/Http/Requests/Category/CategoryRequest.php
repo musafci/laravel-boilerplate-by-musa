@@ -25,26 +25,19 @@ class CategoryRequest extends FormRequest
             case 'POST':
             {
                 return [
-                    'name',
-                ];
-            }
-            case 'PUT':
-            {
-                return [
-                    'id'
+                    'name' => 'required',
                 ];
             }
             case 'DELETE':
+            case 'PUT':
             {
                 return [
-                    'id'
+                    'id' => 'required',
                 ];
             }
             case 'GET':
             {
-                return [
-                    
-                ];
+                return [];
             }
 
             default:break;
