@@ -19,17 +19,23 @@ class CategoryStore
     public function handle($request): RedirectResponse|string
     {
         try {
-            $iconFolder = '/category/icon';
-            $bannerFolder = '/category/banner';
-            $icon = $this->uploadImageToLocal($request->icon, $iconFolder, 'icon_');
-            $banner = $this->uploadImageToLocal($request->banner, $bannerFolder, 'banner_');
+            $icon = null;
+            $banner = null;
+            
+            if($request->icon) {
+                $icon = $this->uploadImageToLocal($request->icon, '/category/icon/', 'icon_');
+            }
 
+            if($request->banner) {
+                $banner = $this->uploadImageToLocal($request->banner, '/category/banner/', 'banner_');
+            }
+            
             $category = Category::create([
                 'name' => $request->name,
                 'is_parent' => $request->is_parent,
                 'parent_id' => $request->parent_id,
-                'icon' => $icon ?? '',
-                'banner' => $banner ?? '',
+                'icon' => $icon,
+                'banner' => $banner,
             ]);
 
             $notification = array(
