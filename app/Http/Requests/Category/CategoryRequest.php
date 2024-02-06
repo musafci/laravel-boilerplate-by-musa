@@ -25,7 +25,7 @@ class CategoryRequest extends FormRequest
             case 'POST':
             {
                 return [
-                    'name' => 'required',
+                    'name' => 'required|unique:categories',
                 ];
             }
             case 'DELETE':

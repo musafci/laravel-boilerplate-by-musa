@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
@@ -9,45 +10,44 @@ trait UploadTrait {
     /**
      * @param $image, 
     */
-    public function uploadImageToLocal($image, $destinationPath, $prefix, $width = null, $height = null, $previousImage = null)
+    public function uploadImageToLocal($image, $destination_path, $prefix, $width = null, $height = null, $previous_image = null)
     {
         try {
-            $finalDestinationPath = 'app/public/' . $destinationPath;
+            $final_path = 'app/public/' . $destination_path;
             $manager = new ImageManager(new Driver());
-            $imageResize = $manager->read($image);
+            $image_read = $manager->read($image);
 
-            self::checkDirectory($finalDestinationPath);
+            self::checkDirectory($final_path);
 
-            // $imageResize = Image::make($image);
-            $name = $prefix . rand(100000, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $image_name = $prefix . rand(100000, 999999) . time() . '.' . $image->getClientOriginalExtension();
 
             if (!empty($width) && !empty($height)) {
 
-                $orgWidth  = $imageResize->width();
-                $orgHeight = $imageResize->height();
+                $original_width  = $image_read->width();
+                $original_height = $image_read->height();
 
-                if ($orgWidth >= $orgHeight) {
-                    $imageResize->resize($width, null, function ($constraint) {
+                if ($original_width >= $original_height) {
+                    $image_read->resize($width, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 } else {
-                    $imageResize->resize(null, $height, function ($constraint) {
+                    $image_read->resize(null, $height, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
             }
 
-            $imageResize->save(storage_path("{$finalDestinationPath}/{$name}"));
-            $imageUrl = $destinationPath . $name;
+            $image_read->save(storage_path("{$final_path}/{$image_name}"));
+            $uploaded_path = $destination_path . $image_name;
 
-            if (!empty($previousImage)) {
-                $this->deleteImage($previousImage, $finalDestinationPath);
+            if (!empty($previous_image)) {
+                $this->deleteImage($previous_image, $final_path);
             }
 
-            return $imageUrl;
+            return $uploaded_path;
 
         } catch (\Exception $ex) {
-            \Log::info('Image upload exception = '. $ex->getMessage());
+            Log::info('Image upload exception = '. $ex->getMessage());
             return false;
         }
     }
