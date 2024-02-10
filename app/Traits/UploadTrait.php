@@ -38,7 +38,7 @@ trait UploadTrait {
             }
 
             $image_read->save(storage_path("{$final_path}/{$image_name}"));
-            $uploaded_path = $destination_path . $image_name;
+            $uploaded_path = '/storage'.$destination_path . $image_name;
 
             if (!empty($previous_image)) {
                 $this->deleteImage($previous_image, $final_path);
