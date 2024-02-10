@@ -124,7 +124,7 @@
                         btnClass: 'btn-red',
                         action: function () {
                             $.ajax({
-                                type: 'post',
+                                type: 'delete',
                                 url: '{{ route("category.destroy") }}',
                                 data: requestData,
                                 success: function (responseData) {
