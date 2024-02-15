@@ -91,6 +91,24 @@ class CategoryController extends Controller
         return $action->handle($category);
     }
 
+
+
+    /**
+     * @param Category $category
+     * @return Application|Factory|View|RedirectResponse
+     */
+    public function edit(Category $category): Application|Factory|View|RedirectResponse
+    {
+        $breadcrumbs = [
+            'Category' => route('category.index'),
+            'Edit'
+        ];
+
+        $categories = Category::all()->except($category->id);;
+
+        return view('category.edit', compact('breadcrumbs', 'category', 'categories'));
+    }
+
     
 
     /**
