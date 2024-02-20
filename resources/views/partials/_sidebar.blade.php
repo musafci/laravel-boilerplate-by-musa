@@ -49,6 +49,17 @@
                                 <p>Category</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('version.index')}}" class="nav-link @if(in_array(Request::route()->getName(), ["version.index"])) active @endif">
+                                <i class="nav-icon fas fa-code-branch"></i>
+                                <p>Version</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('app.setting.index')}}" class="nav-link @if(in_array(Request::route()->getName(), ["app.setting.index"])) active @endif">
+                                <i class="nav-icon fas fa-cog"></i>
+                                <p>App Setting</p>
+                            </a>
                         </li>
                     </ul>
                 </li>
