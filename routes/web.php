@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{CategoryController, FrontController, IndexController, NotificationController, UserController};
+use App\Http\Controllers\{AppSettingController, AppVersionController, CategoryController, FrontController, IndexController, NotificationController, UserController};
 use Illuminate\Support\Facades\Route;
 use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
@@ -54,4 +54,19 @@ Route::middleware('auth')->group(function () {
     Route::put('/category/{category}', [CategoryController::class, 'update'])->name('category.update');
     Route::delete('category-delete', [CategoryController::class, 'destroy'])->name('category.destroy');
     Route::get('/category-parent/{category}', [CategoryController::class, 'parent'])->name('category.parent');
+
+    ### Version
+    Route::get('/version', [AppVersionController::class, 'index'])->name('version.index');
+    Route::get('/version/create', [AppVersionController::class, 'create'])->name('version.create');
+    Route::post('/version', [AppVersionController::class, 'store'])->name('version.store');
+    Route::get('/version/{version}/edit', [AppVersionController::class, 'edit'])->name('version.edit');
+    Route::put('/version/{version}', [AppVersionController::class, 'update'])->name('version.update');
+
+    ### App setting
+    Route::get('/app-setting', [AppSettingController::class, 'index'])->name('app.setting.index');
+    Route::get('/app-setting/create', [AppSettingController::class, 'create'])->name('app.setting.create');
+    Route::post('/app-setting', [AppSettingController::class, 'store'])->name('app.setting.store');
+    Route::get('/app-setting/{setting}/edit', [AppSettingController::class, 'edit'])->name('app.setting.edit');
+    Route::put('/app-setting/{setting}', [AppSettingController::class, 'update'])->name('app.setting.update');
+    Route::delete('/delete-app-setting', [AppSettingController::class, 'destroy'])->name('app.setting.destroy');
 });
