@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return asset("images/no_image.jpg");
     }
+
+    public function getVersionAttribute()
+    {
+        return AppVersion::orderBy('id', 'DESC')->where('status', 'Active')->limit(1)->value('version_number');
+    }
 }

@@ -57,7 +57,7 @@
     <!-- /.content-wrapper -->
 
     <footer class="main-footer">
-        <strong>Copyright &copy; {{date('Y')}} <a href="{{route('dashboard')}}">{{ config('app.name') }}</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; {{date('Y')}} <a href="{{route('dashboard')}}">{{ config('app.name') }}</a>.</strong> All rights reserved. @if (Auth::user()->version)version-{{Auth::user()->version}}@endif
     </footer>
 
     <!-- Control Sidebar -->
