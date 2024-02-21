@@ -3,6 +3,7 @@
 namespace App\Modules\AppSettings\Actions;
 
 use App\Models\AppSetting;
+use App\Modules\AppSettings\DataTable\AppSettingTable;
 use App\Traits\RedirectWithNotification;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
