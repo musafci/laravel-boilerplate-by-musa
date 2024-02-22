@@ -1,5 +1,5 @@
 @if(!empty($row->logo))
-    <img src="https://d1gpq2c3n7cisg.cloudfront.net/{{$row->logo}}"
+    <img src="{{asset($row->logo ?? 'images/not_found.png')}}"
          style="
                 width: 90px;
                 height: 90px;

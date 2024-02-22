@@ -4,6 +4,7 @@ namespace App\Modules\AppSettings\Actions;
 
 use App\Models\AppSetting;
 use App\Traits\RedirectWithNotification;
+use App\Traits\UploadTrait;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -11,11 +12,10 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 
 class StoreAppSetting
 {
-    use RedirectWithNotification;
+    use RedirectWithNotification, UploadTrait;
 
     /**
      * @param $request
@@ -27,26 +27,15 @@ class StoreAppSetting
         try {
             DB::beginTransaction();
             $setting = new AppSetting();
+            $logo = null;
 
-            if ($request->logo) {
-                $file = $request->logo;
-                $file_name = time() . rand(10000, 99999) . '.' . $file->extension();
-                $filePath = 'app-setting/' . $file_name;
-                $res = Storage::disk('s3')->put($filePath, file_get_contents($file));
-                if ($res) {
-                    $message = 'Logo store successfully.';
-                    $setting->logo = $filePath;
-                } else {
-                    $status = 500;
-                    $message = 'Logo stored failed!';
-                    Log::info('Logo stored exception: ' . $message);
-
-                    return $this->redirectMessage('app-settings.index', $message);
-                }
+            if($request->logo) {
+                $logo = $this->uploadImageToLocal($request->logo, '/logo/', 'logo_');
             }
 
             $setting->app_name = $request->app_name;
             $setting->app_description = $request->app_description;
+            $setting->logo = $logo;
             $setting->save();
 
             $notification = array(
