@@ -23,7 +23,7 @@
 <div class="row">
     @if(!empty($setting->logo))
     <div class="form-group col-2">
-        <img src="https://d1gpq2c3n7cisg.cloudfront.net/{{$setting->logo}}"
+        <img src="{{asset($setting->logo ?? 'images/not_found.png')}}"
             style="
             width: 90px;
             height: 90px;
@@ -47,7 +47,7 @@
                 <label for="logo" >Logo</label>
                 <input class="form-control" id="logo" type="file" name="logo"/>
             @if(!empty($setting->logo))
-                <span style="color: #ff9800; font-size: 14px; font-weight: bold">{{ $logo_name[1] ?? null }}</span>
+                <span style="color: #ff9800; font-size: 14px; font-weight: bold">{{ $logo_name[3] ?? null }}</span>
             @endif
         </div>
     </div>
