@@ -54,4 +54,14 @@ class User extends Authenticatable
     {
         return AppVersion::orderBy('id', 'DESC')->where('status', 'Active')->limit(1)->value('version_number');
     }
+
+    public function getAppNameAttribute()
+    {
+        return AppSetting::value('app_name');
+    }
+
+    public function getLogoAttribute()
+    {
+        return AppSetting::value('logo');
+    }
 }
