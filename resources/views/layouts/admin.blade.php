@@ -57,13 +57,20 @@
     <!-- /.content-wrapper -->
 
     <footer class="main-footer">
-        <strong>Copyright &copy; {{date('Y')}} <a href="{{route('dashboard')}}">{{ config('app.name') }}</a>.</strong> All rights reserved. @if (Auth::user()->version)version-{{Auth::user()->version}}@endif
+        <strong>Copyright &copy; {{date('Y')}}
+            <a href="{{route('dashboard')}}">
+                @if (Auth::user()->AppName)
+                    {{Auth::user()->AppName}}
+                @else
+                    {{ config('app.name') }}
+                @endif
+            </a>.
+        </strong> All rights reserved. @if (Auth::user()->version)version-{{Auth::user()->version}}@endif
     </footer>
 
     <!-- Control Sidebar -->
    <aside class="control-sidebar control-sidebar-dark">
        <!-- Control sidebar content goes here -->
-       <h1>sssssssssssssss</h1>
    </aside>
     <!-- /.control-sidebar -->
     <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">

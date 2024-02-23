@@ -1,8 +1,14 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4 ">
     <!-- Brand Logo -->
     <a href="{{route('dashboard')}}" class="brand-link">
-        <img src="{{asset('images/ABTransitions-logo.png')}}" alt="Ad Portal" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
+        <img src="@if (Auth::user()->Logo){{Auth::user()->Logo}}@else{{asset('images/default_logo.svg')}}@endif" alt="Ad Portal" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">
+            @if (Auth::user()->AppName)
+                {{Auth::user()->AppName}}
+            @else
+                {{ config('app.name') }}
+            @endif
+        </span>
     </a>
 
     <!-- Sidebar -->
