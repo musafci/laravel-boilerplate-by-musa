@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -20,7 +21,10 @@ class IndexController extends Controller
      */
     public function dashboard(): View|Factory|Application
     {
-        return view('index.dashboard');
+        $users = User::count();
+        $categories = Category::count();
+
+        return view('index.dashboard', compact('users', 'categories'));
     }
 
     /**
