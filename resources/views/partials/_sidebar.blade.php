@@ -40,6 +40,12 @@
                         <p>Users</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('blog.index')}}" class="nav-link @if(in_array(Request::route()->getName(), ["blog.index"])) active @endif">
+                        <i class="nav-icon fas fa-blog"></i>
+                        <p>Blogs</p>
+                    </a>
+                </li>
                 <li class="nav-item " style=" color: #212529 !important;">
                     <a href="#" class="nav-link ">
                         <i class="nav-icon fas fa-cogs"></i>

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{AppSettingController, AppVersionController, CategoryController, FrontController, IndexController, NotificationController, UserController};
+use App\Http\Controllers\{AppSettingController, AppVersionController, BlogController, CategoryController, FrontController, IndexController, NotificationController, UserController};
 use Illuminate\Support\Facades\Route;
 use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
@@ -69,4 +69,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/app-setting/{setting}/edit', [AppSettingController::class, 'edit'])->name('app.setting.edit');
     Route::put('/app-setting/{setting}', [AppSettingController::class, 'update'])->name('app.setting.update');
     Route::delete('/delete-app-setting', [AppSettingController::class, 'destroy'])->name('app.setting.destroy');
+
+    ### Blog
+    Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+    Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
+    Route::post('/blog', [BlogController::class, 'store'])->name('blog.store');
+    Route::get('/blog/{blog}/edit', [BlogController::class, 'edit'])->name('blog.edit');
+    Route::put('/blog/{blog}', [BlogController::class, 'update'])->name('blog.update');
+    Route::delete('/delete-blog', [BlogController::class, 'destroy'])->name('blog.destroy');
 });
