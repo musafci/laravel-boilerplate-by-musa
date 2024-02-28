@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AppSetting;
+
 class FrontController extends Controller
 {
     /**
@@ -10,6 +12,7 @@ class FrontController extends Controller
     */
     public function login()
     {
-        return view('auth.login');
+        $app_name = AppSetting::value('app_name');
+        return view('auth.login', compact('app_name'));
     }
 }

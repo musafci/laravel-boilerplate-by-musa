@@ -17,7 +17,7 @@ class BlogController extends Controller
     }
 
     /**
-     * @param FetchVersions $action
+     * @param FetchBlog $action
      * @return Application|Factory|View|JsonResponse|RedirectResponse
      */
     public function index(FetchBlog $action): View|Factory|JsonResponse|RedirectResponse|Application
