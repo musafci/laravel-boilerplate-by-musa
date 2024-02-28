@@ -5,11 +5,17 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-{{--                <h3><a href="{{route('home')}}">{{ config('app.name') }}</a></h3>--}}
-                <h3>{{ config('app.name') }}</a></h3>
+                <h3>
+                    <a href="{{route('loginpage')}}">
+                        @if ($app_name)
+                            {{$app_name}}
+                        @else
+                            {{ config('app.name') }}
+                        @endif
+                    </a>
+                </h3>
             </div>
             <div class="card-body">
-                {{--            <p class="login-box-msg">Sign in to start your session</p>--}}
                 @if(session('message'))
                     <p class="alert alert-info">
                         {{ session('message') }}
