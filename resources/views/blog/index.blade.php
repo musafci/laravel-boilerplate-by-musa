@@ -31,7 +31,7 @@
                             </h3>
                             {{-- @can('category-create') --}}
                                 <div class="card-tools">
-                                    <a class="btn btn-sm btn-success" href="{{ route("category.create") }}">
+                                    <a class="btn btn-sm btn-success" href="{{ route("blog.create") }}">
                                         Add New Blog
                                     </a>
                                 </div>

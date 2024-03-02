@@ -24,4 +24,17 @@ class BlogController extends Controller
     {
         return $action->handle();
     }
+
+    /**
+     * @return Application|Factory|View
+     */
+    public function create(): Application|Factory|View
+    {
+        $breadcrumbs = [
+            'Blog' => route('blog.index'),
+            'Create'
+        ];
+
+        return view('blog.create', compact('breadcrumbs'));
+    }
 }
