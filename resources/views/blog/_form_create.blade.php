@@ -12,40 +12,34 @@
 
     <div class="col-lg-4 col-4">
         <div class="form-group">
-            <label for="isParent" class="font-weight-normal">Does this category have a parent?</label>
-            <select  id="isParent" name="is_parent" class="form-control">
-                <option value="0">No</option>
-                <option value="1">Yes</option>
+            <label for="category_id" class="font-weight-normal">Category</label>
+            <select id="category_id" name="category_id" class="form-control">
+                <option value="">Select Category</option>
             </select>
         </div>
     </div>
 </div>
 
-
 <div class="row justify-content-md-center ">
+
     <div class="col-lg-8 col-8">
-        <div class="form-group">
-            <label for="parentId" class="font-weight-normal">Parent Category Name</label>
-            <select id="parentId" name="parent_id" class="form-control">
-                <option value="">Select Parent</option>
-            </select>
+        <div class="form-group {{ $errors->has('body') ? 'has-error' : '' }}">
+            <label for="title" class="font-weight-normal">Body<span class="text-red"> *</span></label>
+            <textarea class="form-control" cols="5" rows="5"></textarea>
+            @if($errors->has('body'))
+                <span class="help-block" role="alert">{{ $errors->first('body') }}</span>
+            @endif
         </div>
     </div>
+
 </div>
 
 
 <div class="row justify-content-md-center">
-    <div class="col-lg-4 col-4">
+    <div class="col-lg-8 col-8">
         <div class="form-group">
-            <label for="icon" class="font-weight-normal">Icon <span class="text-gray">(32 x 32)</span></label>
-            <input class="form-control" id="icon" type="file" name="icon" value="{{ old('icon', isset($category) ? $category->icon : null) }}">
-        </div>
-    </div>
-
-    <div class="col-lg-4 col-4">
-        <div class="form-group">
-            <label for="banner" class="font-weight-normal">Banner <span class="text-gray">(100 x 800)</span></label>
-            <input class="form-control" id="banner" type="file" name="banner" value="{{ old('banner', isset($category) ? $category->banner : null) }}">
+            <label for="image" class="font-weight-normal">Image <span class="text-gray">(512 x 512)</span></label>
+            <input class="form-control" id="image" type="file" name="image" value="{{ old('image', isset($blog) ? $blog->image : null) }}">
         </div>
     </div>
 </div>
