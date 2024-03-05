@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Blog\BlogRequest;
+use App\Models\Category;
 use App\Modules\Blog\Actions\FetchBlog;
+use App\Modules\Blog\Actions\StoreBlog;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -34,7 +37,18 @@ class BlogController extends Controller
             'Blog' => route('blog.index'),
             'Create'
         ];
+        $categories = Category::select('id','name')->get();
 
-        return view('blog.create', compact('breadcrumbs'));
+        return view('blog.create', compact('breadcrumbs','categories'));
+    }
+
+    /**
+     * @param BlogRequest $request
+     * @param StoreBlog $action
+     * @return RedirectResponse | String
+     */
+    public function store(BlogRequest $request, StoreBlog $action): RedirectResponse | String
+    {
+        return $action->handle($request);
     }
 }
