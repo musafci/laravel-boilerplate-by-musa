@@ -17,8 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('body');
             $table->string('image');
-            $table->enum('publish_status', ['Publish','Unpublish'])->default('Publish');
-            $table->enum('status', ['Active','Inactive'])->default('Active');
+            $table->enum('status', ['Publish','Unpublish'])->default('Publish');
             $table->integer('created_by')->nullable()->default(0);
             $table->integer('updated_by')->nullable()->default(0);
             $table->timestamps();
