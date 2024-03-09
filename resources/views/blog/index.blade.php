@@ -48,6 +48,7 @@
                                             <th>Body</th>
                                             <th>Image</th>
                                             <th>Created</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -95,8 +96,8 @@
                 {'data': 'body'},
                 {'data': 'image'},
                 {'data': 'created_by'},
+                {'data': 'status'},
                 {'data': 'actions'},
-
             ]
         });
         $( document ).ajaxError(function( event, jqxhr, settings, thrownError ) {

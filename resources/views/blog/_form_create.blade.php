@@ -3,7 +3,7 @@
     <div class="col-lg-4 col-4">
         <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
             <label for="title" class="font-weight-normal">Title<span class="text-red"> *</span></label>
-            <input class="form-control" id="title" type="text" name="title" value="{{ old('title', isset($blog) ? $blog->title : null) }}" required>
+            <input class="form-control" id="title" type="text" name="title" value="{{ old('title', isset($blog) ? $blog->title : null) }}">
             @if($errors->has('title'))
                 <span class="help-block" role="alert">{{ $errors->first('title') }}</span>
             @endif
@@ -14,7 +14,7 @@
         <div class="form-group">
             <label for="category_id" class="font-weight-normal">Category<span class="text-red"> *</span></label>
             <select id="category_id" name="category_id" class="form-control">
-                <option value="">Select Category</option>
+                <option>Select Category</option>
                 @if($categories)
                     @foreach($categories as $categorie)
                     <option value="{{$categorie->id}}">{{$categorie->name}}</option>

@@ -4,8 +4,16 @@ namespace App\Modules\Blog\Actions;
 
 class StoreBlog
 {
-    public function handle()
+    /**
+     * @param $request
+     * @return RedirectResponse
+    */
+    public function handle($request): RedirectResponse
     {
-        
+        try {
+            //code...
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 }
