@@ -45,9 +45,9 @@ class BlogController extends Controller
     /**
      * @param BlogRequest $request
      * @param StoreBlog $action
-     * @return RedirectResponse | String
+     * @return RedirectResponse
      */
-    public function store(BlogRequest $request, StoreBlog $action): RedirectResponse | String
+    public function store(BlogRequest $request, StoreBlog $action): RedirectResponse
     {
         return $action->handle($request);
     }
