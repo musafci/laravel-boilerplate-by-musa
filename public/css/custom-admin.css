@@ -1,0 +1,9 @@
+tr.table-head-color {
+    background-color: darkcyan;
+    color: #fff;
+    font-size: 12px;
+}
+
+/* table.list-data-view > tbody > tr > td:last-child{
+    display: inline-flex;
+} */

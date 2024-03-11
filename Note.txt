@@ -1,0 +1,12 @@
+01. Install laravel latest version 10.
+02. Create branch for 'adminpanel' named 'laravel10_adminpanel'.
+03. Install Laravel UI package by 'composer require laravel/ui'
+    - php artisan ui bootstrap [Generate basic scaffolding]    
+    - php artisan ui bootstrap --auth [Generate login / registration scaffolding]
+04. Install some required package and config.
+    - nesbot/carbon
+    - rap2hpoutre/laravel-log-viewer
+    - spatie/laravel-activitylog
+    - yajra/laravel-datatables-oracle
+    - barryvdh/laravel-debugbar
+    - spatie/laravel-permission

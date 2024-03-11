@@ -1,0 +1,22 @@
+.treeview-menu.menu-open{
+    display: block!important;
+}
+.treeview-menu li .active{
+    background-color: #007bff !important;
+    color: #fff !important;
+    margin: 10px !important;
+}
+
+.treeview-menu li {
+    margin: 10px !important;
+}
+
+.treeview-menu-profile li .active{
+    background-color: #007bff !important;
+    color: #fff !important;
+    margin: 10px !important;
+}
+
+.treeview-menu-profile li {
+    margin: 10px !important;
+}

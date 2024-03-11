@@ -1,0 +1,1 @@
+<img src="{{asset($row->banner ?? 'images/not_found.png')}}" height="30" width="80" alt="banner">

@@ -7,11 +7,20 @@
     "require": {
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.2",
+        "hashids/hashids": "^5.0",
+        "intervention/image": "^3.3",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
-        "laravel/tinker": "^2.8"
+        "laravel/tinker": "^2.8",
+        "laravel/ui": "^4.4",
+        "nesbot/carbon": "^2.72",
+        "rap2hpoutre/laravel-log-viewer": "^2.3",
+        "spatie/laravel-activitylog": "^4.7",
+        "spatie/laravel-permission": "^6.3",
+        "yajra/laravel-datatables-oracle": "^10.3.1"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.9",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
@@ -25,7 +34,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/Helper/HelperFunctions.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -42,4 +44,24 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getPhotoUrl()
+    {
+        return asset("images/no_image.jpg");
+    }
+
+    public function getVersionAttribute()
+    {
+        return AppVersion::orderBy('id', 'DESC')->where('status', 'Active')->limit(1)->value('version_number');
+    }
+
+    public function getAppNameAttribute()
+    {
+        return AppSetting::value('app_name');
+    }
+
+    public function getLogoAttribute()
+    {
+        return AppSetting::value('logo');
+    }
 }
