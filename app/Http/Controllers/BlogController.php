@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Blog\BlogRequest;
-use App\Models\Category;
+use App\Modules\Blog\Actions\CreateBlog;
 use App\Modules\Blog\Actions\FetchBlog;
 use App\Modules\Blog\Actions\StoreBlog;
+use App\Modules\Blog\Helper\BlogHelper;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -21,34 +22,30 @@ class BlogController extends Controller
 
     /**
      * @param FetchBlog $action
+     * @param BlogHelper $helper
      * @return Application|Factory|View|JsonResponse|RedirectResponse
      */
-    public function index(FetchBlog $action): View|Factory|JsonResponse|RedirectResponse|Application
+    public function index(BlogHelper $helper, FetchBlog $action): View|Factory|JsonResponse|RedirectResponse|Application
     {
-        return $action->handle();
+        return $action->handle($helper->modelOf());
     }
 
     /**
      * @return Application|Factory|View
      */
-    public function create(): Application|Factory|View
+    public function create(CreateBlog $action): Application|Factory|View
     {
-        $breadcrumbs = [
-            'Blog' => route('blog.index'),
-            'Create'
-        ];
-        $categories = Category::select('id','name')->get();
-
-        return view('blog.create', compact('breadcrumbs','categories'));
+        return $action->handle();
     }
 
     /**
      * @param BlogRequest $request
+     * @param BlogHelper $helper
      * @param StoreBlog $action
      * @return RedirectResponse
      */
-    public function store(BlogRequest $request, StoreBlog $action): RedirectResponse
+    public function store(BlogRequest $request, BlogHelper $helper, StoreBlog $action): RedirectResponse
     {
-        return $action->handle($request);
+        return $action->handle($request, $helper->modelOf());
     }
 }
