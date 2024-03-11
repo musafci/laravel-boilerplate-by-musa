@@ -2,7 +2,6 @@
 
 namespace App\Modules\Blog\Actions;
 
-use App\Models\Blog;
 use App\Modules\Blog\DataTable\BlogTable;
 use App\Traits\RedirectWithNotification;
 use Illuminate\Contracts\Foundation\Application;
@@ -18,12 +17,13 @@ class FetchBlog
     use RedirectWithNotification;
 
     /**
+     * @param $model
      * @return Application|Factory|View|JsonResponse|RedirectResponse
      */
-    public function handle(): View|Factory|JsonResponse|RedirectResponse|Application
+    public function handle($model): View|Factory|JsonResponse|RedirectResponse|Application
     {
         try {
-            $query = Blog::get();
+            $query = $model::get();
 
             $breadcrumbs = [
                 'Blog'
