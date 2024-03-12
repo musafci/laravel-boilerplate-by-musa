@@ -2,10 +2,13 @@
 
 namespace App\Modules\Blog\Actions;
 
+use App\Models\Blog;
 use App\Traits\UploadTrait;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class StoreBlog
 {
@@ -18,7 +21,6 @@ class StoreBlog
     */
     public function handle($request, $model): RedirectResponse
     {
-        dd($request->all());
         try {
             $image = null;
 
@@ -26,11 +28,13 @@ class StoreBlog
                 $image = $this->uploadImageToLocal($request->image, '/blog/image/', 'blog_');
             }
 
-            $blog = $model::create([
+            Blog::create([
                 'category_id' => $request->category_id,
+                'slug' => Str::slug($request->title),
                 'title' => $request->title,
                 'body' => $request->body,
                 'image' => $image,
+                'created_by' => Auth::user()->id,
             ]);
 
             $notification = array(

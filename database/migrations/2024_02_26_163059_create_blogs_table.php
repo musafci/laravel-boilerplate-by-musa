@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->references('id')->on('categories');
+            $table->string('slug');
             $table->string('title');
             $table->text('body');
             $table->string('image');
