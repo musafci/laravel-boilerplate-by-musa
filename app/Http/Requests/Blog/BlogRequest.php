@@ -28,7 +28,6 @@ class BlogRequest extends FormRequest
                     'category_id' => 'required',
                     'title' => 'required',
                     'body' => 'required',
-                    'image' => 'required',
                 ];
             }
             case 'DELETE':
