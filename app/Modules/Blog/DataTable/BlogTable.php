@@ -3,6 +3,8 @@
 namespace App\Modules\Blog\DataTable;
 
 use App\Interfaces\DynamicTableInterface;
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Str;
 
 class BlogTable implements DynamicTableInterface
@@ -15,6 +17,10 @@ class BlogTable implements DynamicTableInterface
     {
         $image_template = 'blog._image_template';
 
+        $table->editColumn('category_id', function($row) {
+            return Category::where('id', $row->category_id)->value('name');
+        });
+
         $table->editColumn('body', function($row) {
             return strip_tags(Str::limit($row->body), 100);
         });
@@ -25,6 +31,10 @@ class BlogTable implements DynamicTableInterface
 
         $table->editColumn('image', function ($row) use ($image_template) {
             return view($image_template, compact('row'));
+        });
+
+        $table->editColumn('created_by', function ($row) {
+            return User::where('id', $row->created_by)->value('name');
         });
 
         $table->editColumn('actions', function ($row) {
