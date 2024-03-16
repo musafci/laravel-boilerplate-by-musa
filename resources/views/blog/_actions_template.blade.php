@@ -1,7 +1,7 @@
-<a class="btn btn-sm btn-info mr-2"
+{{-- <a class="btn btn-sm btn-info mr-2"
     href="{{ route($routeKey.'.show', $row->slug) }}">
     View
-</a>
+</a> --}}
 
 <a class="btn btn-sm btn-info mr-2"
     href="{{ route($routeKey.'.edit', $row->id) }}">

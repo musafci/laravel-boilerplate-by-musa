@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Blog\BlogRequest;
+use App\Models\Blog;
 use App\Modules\Blog\Actions\CreateBlog;
+use App\Modules\Blog\Actions\EditBlog;
 use App\Modules\Blog\Actions\FetchBlog;
 use App\Modules\Blog\Actions\StoreBlog;
 use App\Modules\Blog\Helper\BlogHelper;
@@ -47,5 +49,14 @@ class BlogController extends Controller
     public function store(BlogRequest $request, BlogHelper $helper, StoreBlog $action): RedirectResponse
     {
         return $action->handle($request, $helper->modelOf());
+    }
+
+    /**
+     * @param Blog $blog
+     * @return Application|Factory|View
+    */
+    public function edit(Blog $blog, EditBlog $action): Application|Factory|View
+    {
+        return $action->handle($blog);
     }
 }
